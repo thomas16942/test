@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script src="prefixfree.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(document).ready(function () {
+        // 네비게이션 버튼
+        $('#main_navigation a').click(function () {
+            // 변수를 선언합니다.
+            var target = $(this).attr('data-target');
+
+            // 클래스를 적용합니다.
+            $(':not([data-name=' + target + '])').removeClass('active');
+            $('[data-name=' + target + ']').addClass('active');
+        });
+
+        // 캐릭터 버튼
+        var currentPosition = 1;
+        $('#character > a:nth-child(1)').click(function () {
+            currentPosition -= 1;
+            if (currentPosition < 1) {
+                currentPosition = 3;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+        $('#character > a:nth-child(2)').click(function () {
+            currentPosition += 1;
+            if (currentPosition > 3) {
+                currentPosition = 1;
+            }
+            $('article').removeClass('show');
+            $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+        });
+    });
+</script>
+</head>
+<body>
+    <div id="body">
+    <hgroup id="title">
+        <h1 data-name="information">Information</h1>
+        <h1 data-name="character">Character</h1>
+        <h1 data-name="multimedia">Multimedia</h1>
+    </hgroup>
+    <section id="container">
+        <!-- 메인 페이지 -->
+        <div id="main" data-name="main" class="active">
+            <img src="Images/Middle_Foreground.png" />
+        </div>
+        <!-- 정보 페이지 -->
+        <div id="information" data-name="information">
+            <img src="Images/Information_Image.png" />
+            <div class="description">
+            <font face='궁서체'>
+            
+            <p>매일 같이 불행하다고 외치는 사람들을 만나는 런던의 정신과 의사 ‘헥터’, <br>
+                        과연 진정한 행복이란 뭘까 궁금해진 그는 모든 걸 제쳐두고 훌쩍 행복을 찾기 위한 여행을 떠난다.  <br>
+   <br>
+ 돈이 행복의 조건이라고 생각하는 상하이의 은행가,  <br>
+ 가족과 행복하게 살고 싶은 아프리카의 마약 밀매상,  <br>
+ 생애 마지막 여행을 떠난 말기암 환자,  <br>
+ 그리고 가슴 속에 간직해둔 LA의 첫사랑까지  <br>
+ ‘헥터’는 여행지에서 만난 수많은 인연들을 통해 그는 리스트를 완성해 나간다.  <br>
+   <br>
+ 설레고 흥겹고 즐거운 그리고 때로는 위험천만하기까지 한 여행의 순간들,  <br>
+ 진정한 행복의 비밀을 찾아 떠난 정신과 의사의 버라이어티한 어드벤처가 시작된다!</p>
+             </div>
+        </div>
+        <!-- 캐릭터 페이지 -->
+        <div id="character" data-name="character">
+            <a href="#">Left Button</a>
+            <a href="#">Right Button</a>
+            <article class="show">
+                <h1>헥터(Hector)</h1><br>
+                  <img src="" />
+                <img src="Images/Character_1.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+            <article>
+                <h1>클라라(Clara)</h1><br>
+                  <img src="" />
+                <img src="Images/Character_2.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+            <article>
+                <h1>디에고(Diego)</h1><br>
+                  <img src="" />
+                <img src="Images/Character_3.png" />
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc interdum tempor nisi et fringilla. Pellentesque placerat ultricies tellus ac cursus. In eget feugiat mauris. Donec sagittis, tortor quis eleifend pretium, felis felis lacinia libero, in porta odio urna sit amet sem. Aliquam velit quam, auctor non aliquet eget, interdum eu ipsum. Vestibulum at erat sit amet tellus consectetur sodales. Sed mi enim, sagittis vel tincidunt sit amet, aliquet vitae magna. Nulla pulvinar pellentesque dolor, at elementum nisl commodo eget. In lacinia purus at tellus sollicitudin porta. Sed consequat risus sem, ut tincidunt turpis. Vestibulum nec ullamcorper enim. In lorem augue, imperdiet ac tincidunt sed, ornare ac enim. Donec enim risus, mattis non sollicitudin quis, tincidunt quis mi.</p>
+            </article>
+        </div>
+        <!-- 영상 페이지 -->
+        <div id="multimedia" data-name="multimedia">
+            <video width="940" height="480" controls="controls">
+            <source src="../kupe/Images/kupe.mp4" type="video/mp4">
+            </video>
+        </div>
+    </section>
+    <nav id="main_navigation">
+        <ul>
+            <li><a href="#" data-target="information">Movie Info</a></li>
+            <li><a href="#" data-target="character">Character</a></li>
+            <li><a href="#" data-target="multimedia">Multimedia</a></li>
+            <li><a href="#">Download</a></li>
+        </ul>
+    </nav>
+        </div>
+</body>
+</html>
